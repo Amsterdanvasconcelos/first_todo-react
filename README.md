@@ -1,8 +1,43 @@
-# React + Vite
+# React To-Do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Português]
+Um aplicativo simples e eficiente de lista de tarefas construído com React, para ajudá-lo a organizar suas tarefas diárias.
 
-Currently, two official plugins are available:
+[English]
+A simple and efficient to-do list application built with React, to help you organize your daily tasks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Português]
+Confira a demonstração ao vivo:
+
+[English]
+Check out the live demo: 
+
+[Live Preview](https://amsterdanvasconcelos.github.io/first_todo-react/)
+
+## Screenshot
+![Home Page](src/assets/printscrean-homepage.png)
+
+## Features
+[Português]
+- Adicionar e excluir tarefas
+- Design responsivo para dispositivos móveis e desktop
+
+[English]
+- Add and delete tasks
+- Responsive design for mobile and desktop
+
+- ## Technology Stacks
+- React
+
+## Author
+Created by Amsterdan Vasconcelos.
+- LinkedIn: [Jessica's LinkedIn Profile](https://www.linkedin.com/in/jessica-santosb/)
+
+- ## Known Issues and Future Improvements
+[Português]
+- Mencione quaisquer problemas conhecidos ou limitações.
+- Esboce seus planos para melhorias futuras.
+
+[English]
+- Mention any known issues or limitations.
+- Outline your plans for future improvements.
