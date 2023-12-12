@@ -26,14 +26,14 @@ Check out the live demo:
 - Add and delete tasks
 - Responsive design for mobile and desktop
 
-- ## Technology Stacks
+## Technology Stacks
 - React
 
 ## Author
 Created by Amsterdan Vasconcelos.
 - LinkedIn: [Jessica's LinkedIn Profile](https://www.linkedin.com/in/jessica-santosb/)
 
-- ## Known Issues and Future Improvements
+## Known Issues and Future Improvements
 [Português]
 - Mencione quaisquer problemas conhecidos ou limitações.
 - Esboce seus planos para melhorias futuras.
