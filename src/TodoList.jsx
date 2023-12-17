@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import todoImg from './assets/todo_img.svg'
 import './TodoList.css'
+import ListItem from "./ListItem";
 
 const TodoList = () => {
-  const storageList = localStorage.getItem('List')
+  const storageList = JSON.parse(localStorage.getItem('List'))
   
-  const [list, setList] = useState(storageList ? JSON.parse(storageList) : [])
+  const [list, setList] = useState(storageList || [])
 
   const addListInLocalStorage = () => {
     localStorage.setItem('List', JSON.stringify(list))
+
+    if (!list.length) {
+      localStorage.removeItem('List')
+    }
   }
 
   const addNewValueInList = event => {
@@ -16,12 +21,10 @@ const TodoList = () => {
     const form = event.target
     const inputValue = form.input.value.trim()
     
-    if (!inputValue) {
-      return  
+    if (inputValue) {
+      setList([{ text: inputValue, isConcluded: false }, ...list]) 
     }
     
-    setList([{ text: inputValue, isConcluded: false }, ...list])
-
     form.reset()
     form.input.focus()
   }
@@ -42,27 +45,14 @@ const TodoList = () => {
     setList([])
   }
 
-  const getTodoListItem = ({ text, isConcluded }, index) => (
-    <div 
-      key={index}
-      onDoubleClick={ () => concludeTask(index) }
-      className={ isConcluded ? 'todo__list-item concluded' : 'todo__list-item' }>
-      <span>{ text }</span>
-      <button className="todo__btn-delete" onClick={ () => deleteTask(index) }>Deletar</button>
-    </div>
-    )
-  
-  const getTodoListItensOrTodoImg = listLength => {
-    if (listLength) {
-      return list.map(getTodoListItem)
-    }
-
-    return <img src={ todoImg } alt="Imagem de uma ToDo List" />
-  }
-
-  const getBtnDeleteAll = listLength => listLength > 1 
-    && <button className="todo__btn-deleteAll" onClick={ deleteAll }>Deletar Todas</button>
-  
+  const getTodoListItem = ({ text, isConcluded }, index) => 
+    <ListItem 
+    key={ index }
+    index={ index } 
+    text={ text } 
+    isConcluded={ isConcluded } 
+    concludeTask={ concludeTask } 
+    deleteTask={ deleteTask } /> 
 
   useEffect(addListInLocalStorage, [list])
 
@@ -74,12 +64,8 @@ const TodoList = () => {
         <button className="todo__btn-add" type="submit">Add</button>
       </form>
       <div className="todo__list">
-        { 
-          getTodoListItensOrTodoImg(list.length) 
-        }
-        {
-          getBtnDeleteAll(list.length)
-        }
+        { list.length ? list.map(getTodoListItem) : <img src={ todoImg } alt="Imagem de uma ToDo List" /> }
+        { list.length > 1 && <button className="todo__btn-deleteAll" onClick={ deleteAll }>Deletar Todas</button> }
       </div>
     </div>
   )
